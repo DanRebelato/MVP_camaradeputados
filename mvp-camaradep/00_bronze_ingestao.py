@@ -1,16 +1,20 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "5"
+# ///
 # MAGIC %md
 # MAGIC # Bronze — Ingestão a partir de arquivos enviados por upload
 # MAGIC
-# MAGIC Coleta feita localmente (`coleta.py`) e enviada por upload a um Volume
-# MAGIC do Unity Catalog — caminho de coleta previsto no próprio enunciado do MVP.
+# MAGIC Coleta feita localmente (`coleta_local/coleta.py`) e enviada por upload a um Volume
+# MAGIC do Unity Catalog
 # MAGIC
 # MAGIC **Antes de rodar este notebook:**
-# MAGIC 1. Rode `coleta.py` no seu computador (veja instruções no topo do arquivo).
-# MAGIC 2. No Databricks, vá em Catalog > seu catálogo > Create Volume (ou use um já existente).
-# MAGIC 3. Dentro do Volume, clique em "Upload files" e envie os 4 CSVs gerados
+# MAGIC 1. Rodar `coleta_local/coleta.py` localmente.
+# MAGIC 2. No Databricks: Catalog > seu catálogo > Create Volume.
+# MAGIC 3. Dentro do Volume: "Upload files", para subir os 4 CSVs gerados
 # MAGIC    (`deputados.csv`, `partidos.csv`, `despesas.csv`, `proposicoes.csv`).
-# MAGIC 4. Ajuste `VOLUME_PATH` abaixo para o caminho do seu Volume.
+# MAGIC 4. Ajustar `VOLUME_PATH` abaixo para o caminho do Volume.
 
 # COMMAND ----------
 
