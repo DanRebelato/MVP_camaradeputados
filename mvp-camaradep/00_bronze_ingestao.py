@@ -2,11 +2,11 @@
 # MAGIC %md
 # MAGIC # Bronze — Ingestão a partir de arquivos enviados por upload
 # MAGIC
-# MAGIC Coleta feita localmente (`coleta_local/coleta.py`) e enviada por upload a um Volume
+# MAGIC Coleta feita localmente (`coleta.py`) e enviada por upload a um Volume
 # MAGIC do Unity Catalog — caminho de coleta previsto no próprio enunciado do MVP.
 # MAGIC
 # MAGIC **Antes de rodar este notebook:**
-# MAGIC 1. Rode `coleta_local/coleta.py` no seu computador (veja instruções no topo do arquivo).
+# MAGIC 1. Rode `coleta.py` no seu computador (veja instruções no topo do arquivo).
 # MAGIC 2. No Databricks, vá em Catalog > seu catálogo > Create Volume (ou use um já existente).
 # MAGIC 3. Dentro do Volume, clique em "Upload files" e envie os 4 CSVs gerados
 # MAGIC    (`deputados.csv`, `partidos.csv`, `despesas.csv`, `proposicoes.csv`).
@@ -39,7 +39,7 @@ df_deputados_bronze = (
     .withColumn("_source", F.lit("/deputados"))
 )
 (df_deputados_bronze.write.format("delta").mode("overwrite")
- .option("mergeSchema", "true")
+ .option("overwriteSchema", "true")
  .saveAsTable("bronze.camara.deputados"))
 print(f"bronze.camara.deputados: {df_deputados_bronze.count()} linhas")
 
@@ -57,7 +57,7 @@ df_partidos_bronze = (
     .withColumn("_source", F.lit("/partidos"))
 )
 (df_partidos_bronze.write.format("delta").mode("overwrite")
- .option("mergeSchema", "true")
+ .option("overwriteSchema", "true")
  .saveAsTable("bronze.camara.partidos"))
 print(f"bronze.camara.partidos: {df_partidos_bronze.count()} linhas")
 
@@ -77,7 +77,7 @@ df_despesas_bronze = (
     .withColumn("_source", F.lit("/deputados/{id}/despesas"))
 )
 (df_despesas_bronze.write.format("delta").mode("overwrite")
- .option("mergeSchema", "true")
+ .option("overwriteSchema", "true")
  .saveAsTable("bronze.camara.despesas"))
 print(f"bronze.camara.despesas: {df_despesas_bronze.count()} linhas")
 
@@ -97,7 +97,7 @@ df_proposicoes_bronze = (
     .withColumn("_source", F.lit("/proposicoes"))
 )
 (df_proposicoes_bronze.write.format("delta").mode("overwrite")
- .option("mergeSchema", "true")
+ .option("overwriteSchema", "true")
  .saveAsTable("bronze.camara.proposicoes"))
 print(f"bronze.camara.proposicoes: {df_proposicoes_bronze.count()} linhas")
 
