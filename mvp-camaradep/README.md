@@ -8,15 +8,14 @@
 ```
 mvp-camara-deputados/
 ├── README.md
-├── docs/
-│   ├── 01_objetivo.md          # Etapas 2 e 4.1
-│   └── 02_catalogo_dados.md    # Etapa 4.3
-└── notebooks/
-    ├── 00_bronze_ingestao.py       # Etapa 4.2 (Bronze)
-    ├── 01_silver_transformacao.py  # Etapa 4.4 (Silver)
-    ├── 02_gold_modelagem.py        # Etapa 4.3 (Gold / Esquema Estrela)
-    ├── 03_qualidade_dados.py       # Etapa 4.5 (Qualidade)
-    └── 04_analise.py               # Etapa 4.5 (Análise / Respostas)
+├── coleta.py                    # script de coleta local
+├── 01_objetivo.md               # Etapas 2 e 4.1
+├── 02_catalogo_dados.md         # Etapa 4.3
+├── 00_bronze_ingestao.py        # Etapa 4.2 (Bronze)
+├── 01_silver_transformacao.py   # Etapa 4.4 (Silver)
+├── 02_gold_modelagem.py         # Etapa 4.3 (Gold / Esquema Estrela)
+├── 03_qualidade_dados.py        # Etapa 4.5 (Qualidade)
+└── 04_analise.py                # Etapa 4.5 (Análise / Respostas)
 ```
 
 Ordem de execução no Databricks: `00` → `01` → `02` → `03` → `04`.
@@ -25,7 +24,7 @@ Ordem de execução no Databricks: `00` → `01` → `02` → `03` → `04`.
 
 ## Contexto de Negócio e Perguntas (Etapa 2 e 4.1)
 
-Conteúdo completo em [`docs/01_objetivo.md`](docs/01_objetivo.md). Resumo:
+Conteúdo completo em [`01_objetivo.md`](01_objetivo.md). Resumo:
 
 **Problema:** entender os fatores que influenciam o comportamento legislativo dos deputados
 federais — gasto de cota parlamentar (CEAP), produtividade legislativa e perfil por
@@ -38,24 +37,22 @@ partido/UF — usando a API de Dados Abertos da Câmara dos Deputados.
 4. Como se distribui a produção legislativa entre partidos e UFs?
 5. Existe diferença no gasto médio mensal entre regiões do país?
 
-**Fonte e licença:** API pública `https://dadosabertos.camara.leg.br/api/v2`, dados sob
-Lei de Acesso à Informação (Lei nº 12.527/2011), uso livre com atribuição da fonte.
+**Fonte e licença:** Dados Abertos da Câmara dos Deputados, sob Lei de Acesso à Informação
+(Lei nº 12.527/2011), uso livre com atribuição da fonte.
 
 ---
 
 ## Carga dos Dados (Etapa 4.2)
 
-A coleta é feita via requisições HTTP diretas à API da Câmara (`requests`), com paginação
-manual (`pagina`/`itens`), percorrendo:
-- `/deputados` → lista de deputados em exercício
-- `/deputados/{id}/despesas` → despesas de cota parlamentar, por deputado e por ano
-- `/proposicoes?idDeputadoAutor={id}` → proposições de autoria de cada deputado
-- `/partidos` → lista de partidos
+Coleta feita localmente com `coleta.py`:
+- `/deputados` e `/partidos` via API REST
+- Despesas (CEAP) via arquivo consolidado anual da Câmara (`Ano-{ano}.csv.zip`)
+- Proposições via API REST, filtradas por autor
 
-Cada tabela Bronze recebe as colunas de controle `_ingestion_ts` (timestamp da coleta) e
-`_source` (endpoint de origem), preservando rastreabilidade.
+Os 4 CSVs resultantes são enviados por upload a um Volume do Unity Catalog e lidos pelo
+notebook Bronze, que grava cada tabela em Delta com `_ingestion_ts` e `_source`.
 
-Script: [`notebooks/00_bronze_ingestao.py`](notebooks/00_bronze_ingestao.py)
+Scripts: [`coleta.py`](coleta.py) · [`00_bronze_ingestao.py`](00_bronze_ingestao.py)
 
 `[PREENCHER]` — Screenshot das tabelas Bronze persistidas no Unity Catalog.
 
@@ -67,9 +64,9 @@ Modelo em **Esquema Estrela** na camada Gold: `dim_deputado`, `dim_partido`, `di
 como dimensões; `fact_despesas` e `fact_proposicoes` como fatos.
 
 Catálogo completo (todas as tabelas, campos, tipos e domínios) em
-[`docs/02_catalogo_dados.md`](docs/02_catalogo_dados.md).
+[`02_catalogo_dados.md`](02_catalogo_dados.md).
 
-Script: [`notebooks/02_gold_modelagem.py`](notebooks/02_gold_modelagem.py)
+Script: [`02_gold_modelagem.py`](02_gold_modelagem.py)
 
 `[PREENCHER]` — Screenshot do catálogo de dados no Unity Catalog / Data Explorer.
 
@@ -95,7 +92,7 @@ camada (`bronze`, `silver`, `gold`).
 ## Qualidade de Dados (Etapa 4.5)
 
 Checagens de completude, unicidade, consistência e outliers feitas em
-[`notebooks/03_qualidade_dados.py`](notebooks/03_qualidade_dados.py), sobre a camada Bronze
+[`03_qualidade_dados.py`](03_qualidade_dados.py), sobre a camada Bronze
 (para justificar as regras aplicadas na Silver).
 
 `[PREENCHER]` — Tabela com os problemas encontrados e o tratamento aplicado (o notebook já
@@ -106,7 +103,7 @@ traz um template dessa tabela ao final, a ser preenchido com os números reais o
 ## Análise de Dados (Etapa 4.5)
 
 Cada uma das 5 perguntas de negócio é respondida em
-[`notebooks/04_analise.py`](notebooks/04_analise.py) via consultas SQL sobre a camada Gold.
+[`04_analise.py`](04_analise.py) via consultas SQL sobre a camada Gold.
 
 `[PREENCHER]` — Para cada pergunta: screenshot do resultado + discussão do que o número
 significa no contexto do problema (ex.: "a análise mostra que X, o que sugere Y").

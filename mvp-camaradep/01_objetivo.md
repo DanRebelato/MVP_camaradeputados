@@ -14,19 +14,16 @@ Entender os fatores que influenciam o **comportamento legislativo dos deputados 
 
 ## Fonte dos dados
 
-**API de Dados Abertos da Câmara dos Deputados** — https://dadosabertos.camara.leg.br/api/v2
+**Dados Abertos da Câmara dos Deputados** — https://dadosabertos.camara.leg.br
 
-- `/deputados` — lista de deputados em exercício (id, nome, partido, UF, e-mail, foto)
-- `/deputados/{id}/despesas` — despesas de cota parlamentar (CEAP) por deputado: ano, mês, tipo de despesa, valor, fornecedor
-- `/proposicoes` — proposições legislativas (filtráveis por autor)
-- `/partidos` — lista de partidos
+- API REST (`/deputados`, `/partidos`, `/proposicoes`) para deputados, partidos e proposições.
+- Arquivo consolidado por ano (`camara.leg.br/cotas/Ano-{ano}.csv.zip`) para despesas de cota parlamentar (CEAP) — canal oficial da Câmara para esse conjunto de dados.
 
 ## Licença de uso
 
-Dados publicados pela Câmara dos Deputados sob a **Licença Aberta / Lei de Acesso à Informação (Lei nº 12.527/2011)**, de uso livre para qualquer finalidade, inclusive comercial, com atribuição da fonte. Documentação oficial: https://dadosabertos.camara.leg.br/
+Lei de Acesso à Informação (Lei nº 12.527/2011), uso livre com atribuição da fonte. https://dadosabertos.camara.leg.br/
 
 ## Escopo e recorte
 
-- Deputados em exercício na legislatura atual (56ª legislatura).
-- Despesas do ano corrente e do ano anterior (para ter volume suficiente sem sobrecarregar a coleta).
-- Proposições de autoria dos deputados no mesmo período.
+- Deputados em exercício na legislatura atual (56ª).
+- Amostra de 40 deputados para despesas (2025–2026) e proposições (2025) — dataset modesto, conforme previsto no enunciado.

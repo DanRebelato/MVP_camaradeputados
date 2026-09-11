@@ -46,7 +46,7 @@ Grão: uma linha por despesa individual de cota parlamentar (CEAP).
 | nomeFornecedor | string | Nome do fornecedor (padronizado) | texto livre |
 | dataDocumento | string | Data do documento fiscal | formato ISO |
 
-**Linhagem:** `bronze.camara.despesas` (coleta via `/deputados/{id}/despesas`) → `silver.camara.despesas` (tipagem, remoção de nulos/negativos, dedup) → `fact_despesas`.
+**Linhagem:** `bronze.camara.despesas` (arquivo consolidado `Ano-{ano}.csv.zip`, filtrado pela amostra) → `silver.camara.despesas` (tipagem, remoção de nulos/negativos, dedup) → `fact_despesas`.
 
 ### `fact_proposicoes`
 Grão: uma linha por proposição legislativa apresentada.
