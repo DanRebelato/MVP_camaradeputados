@@ -47,6 +47,9 @@ print(f"silver.camara.deputados: {df_dep_silver.count()} linhas")
 
 # MAGIC %md
 # MAGIC ## 2. Despesas (CEAP)
+# MAGIC O arquivo consolidado da Câmara usa nomes de coluna próprios (`ideCadastro`, `numAno`,
+# MAGIC `numMes`, `txtDescricao`, `vlrLiquido`, `txtFornecedor`, `datEmissao`) — aqui eles são
+# MAGIC renomeados para os nomes padronizados usados no resto do pipeline.
 # MAGIC - Tipar `valorDocumento` como decimal; valores nulos ou negativos indevidos tratados.
 # MAGIC - Padronizar `nomeFornecedor` (trim + upper) para evitar duplicidade por variação de grafia.
 # MAGIC - Deduplicar por chave natural (`idDeputado`, `ano`, `mes`, `tipoDespesa`, `valorDocumento`, `nomeFornecedor`).
@@ -58,12 +61,13 @@ df_desp_bronze = spark.table("bronze.camara.despesas")
 
 df_desp_silver = (
     df_desp_bronze
-    .withColumn("idDeputado", F.col("idDeputado").cast("int"))
-    .withColumn("valorDocumento", F.col("valorDocumento").cast("decimal(12,2)"))
-    .withColumn("ano", F.col("ano").cast("int"))
-    .withColumn("mes", F.col("mes").cast("int"))
-    .withColumn("nomeFornecedor", F.upper(F.trim(F.col("nomeFornecedor"))))
-    .withColumn("tipoDespesa", F.trim(F.col("tipoDespesa")))
+    .withColumn("idDeputado", F.col("ideCadastro").cast("int"))
+    .withColumn("valorDocumento", F.col("vlrLiquido").cast("decimal(12,2)"))
+    .withColumn("ano", F.col("numAno").cast("int"))
+    .withColumn("mes", F.col("numMes").cast("int"))
+    .withColumn("nomeFornecedor", F.upper(F.trim(F.col("txtFornecedor"))))
+    .withColumn("tipoDespesa", F.trim(F.col("txtDescricao")))
+    .withColumn("dataDocumento", F.col("datEmissao"))
     .filter(
         F.col("idDeputado").isNotNull()
         & F.col("valorDocumento").isNotNull()
