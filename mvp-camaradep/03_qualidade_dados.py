@@ -41,19 +41,19 @@ df_desp = spark.table("bronze.camara.despesas")
 relatorio_nulos(df_desp, "despesas")
 
 # Acurácia: valores negativos ou zerados
-neg = df_desp.filter(F.col("valorDocumento") < 0).count()
-zero = df_desp.filter(F.col("valorDocumento") == 0).count()
+neg = df_desp.filter(F.col("vlrDocumento") < 0).count()
+zero = df_desp.filter(F.col("vlrDocumento") == 0).count()
 print(f"Despesas com valor negativo: {neg}")
 print(f"Despesas com valor zero: {zero}")
 
 # Outliers: valores muito acima do 99º percentil
-p99 = df_desp.approxQuantile("valorDocumento", [0.99], 0.01)[0]
-outliers = df_desp.filter(F.col("valorDocumento") > p99 * 3).count()
+p99 = df_desp.approxQuantile("vlrDocumento", [0.99], 0.01)[0]
+outliers = df_desp.filter(F.col("vlrDocumento") > p99 * 3).count()
 print(f"Percentil 99 do valor de despesa: {p99}")
 print(f"Despesas > 3x o percentil 99 (possíveis outliers): {outliers}")
 
 # Consistência: meses fora do intervalo 1-12
-mes_invalido = df_desp.filter(~F.col("mes").between(1, 12)).count()
+mes_invalido = df_desp.filter(~F.col("numMes").between(1, 12)).count()
 print(f"Registros com mês inválido: {mes_invalido}")
 
 # COMMAND ----------
