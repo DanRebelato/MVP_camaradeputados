@@ -38,9 +38,11 @@ mapa_regiao_df = spark.createDataFrame(
 
 # COMMAND ----------
 
+df_dep_silver = spark.table("silver.camara.deputados")
+
 dim_deputado = (
-    spark.table("silver.camara.deputados")
-    .join(mapa_regiao_df, spark.table("silver.camara.deputados").siglaUf == mapa_regiao_df.uf, "left")
+    df_dep_silver
+    .join(mapa_regiao_df, df_dep_silver.siglaUf == mapa_regiao_df.uf, "left")
     .select(
         F.col("id").alias("sk_deputado"),
         "nome",
