@@ -1,4 +1,3 @@
-<img width="1887" height="613" alt="Print 2" src="https://github.com/user-attachments/assets/2cdcbe9f-590c-442b-9f83-e967bb60f300" />
 # MVP de Engenharia de Dados — Comportamento Legislativo dos Deputados Federais
 
 ## Estrutura do repositório
@@ -77,7 +76,7 @@ Screenshot do catálogo de dados no Unity Catalog / Data Explorer.
 ## Pipeline de Dados (Etapa 4.4)
 
 Pipeline organizado em **três notebooks separados**, um por camada da Arquitetura
-Medalhão, para manter cada responsabilidade isolada e fácil de depurar:
+Medalhão, mantendo cada responsabilidade isolada e fácil de depurar:
 
 1. **Bronze** (`00_bronze_ingestao.py`): extração bruta da API, sem transformação.
 2. **Silver** (`01_silver_transformacao.py`): tipagem, deduplicação, padronização e
@@ -87,7 +86,9 @@ Medalhão, para manter cada responsabilidade isolada e fácil de depurar:
 Todas as tabelas são gravadas como tabelas **Delta** no Unity Catalog, uma catálogo por
 camada (`bronze`, `silver`, `gold`).
 
-`[PREENCHER]` — Screenshot confirmando a persistência das tabelas Gold na plataforma.
+<img width="1887" height="688" alt="Print 3" src="https://github.com/user-attachments/assets/675b3391-8c0a-427d-a81e-8eca0c4f2c2f" />
+
+Screenshot confirmando a persistência das tabelas Gold na plataforma.
 
 ---
 
