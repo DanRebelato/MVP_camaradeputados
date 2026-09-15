@@ -98,17 +98,28 @@ Checagens de completude, unicidade, consistência e outliers feitas em
 [`03_qualidade_dados.py`](03_qualidade_dados.py), sobre a camada Bronze
 (para justificar as regras aplicadas na Silver).
 
-`[PREENCHER]` — screenshot da saída do notebook.
+<img width="1490" height="391" alt="Print 4 1" src="https://github.com/user-attachments/assets/a3f64a81-98fb-4790-b67b-0e23eb96f3ae" /> 
+
+Screenshot da saída do notebook, dados dos Deputados
+
+<img width="1451" height="606" alt="Print 4 2" src="https://github.com/user-attachments/assets/61d2388e-71b2-459e-b061-f9a7338e3de3" />
+
+Screenshot da saída do notebook, Despesas.
+
+<img width="1513" height="517" alt="Print 4 3" src="https://github.com/user-attachments/assets/76065dfe-4382-40cf-9b73-ded6a6965028" /> 
+
+Screenshot da saída do notebook, Proposições.
+
 
 | Problema encontrado | Tabela | Tratamento aplicado (camada Silver) |
 |---|---|---|
 | 316 IDs de deputado duplicados (de 1.073 registros) | deputados | `dropDuplicates` por `id` |
-| Campo `email` 100% nulo (1.073/1.073) | deputados | Mantido como está — não é usado nas análises |
-| Campos quase totalmente nulos (`cpf` 100%, `txtTrecho` 100%, `numRessarcimento` 100%, `datPagamentoRestituicao` 100%, `vlrRestituicao` 100%, `txtPassageiro` 99,82%, `txtDescricaoEspecificacao` 55,24%) | despesas | Descartados na seleção da Silver — são campos específicos de passagens aéreas/restituições, que não se aplicam à maioria das despesas e não entram no modelo |
-| Valores negativos, zerados ou outliers extremos (>3x o percentil 99) | despesas | Nenhum encontrado (0 casos) — dado já veio limpo nesse aspecto |
+| Campo `email` 100% nulo (1.073/1.073) | deputados | Mantido como está, não é usado nas análises |
+| Campos quase totalmente nulos (`cpf` 100%, `txtTrecho` 100%, `numRessarcimento` 100%, `datPagamentoRestituicao` 100%, `vlrRestituicao` 100%, `txtPassageiro` 99,82%, `txtDescricaoEspecificacao` 55,24%) | despesas | Descartados na seleção da Silver, são campos específicos de passagens aéreas/restituições, que não se aplicam à maioria das despesas e não entram no modelo |
+| Valores negativos, zerados ou outliers extremos (>3x o percentil 99) | despesas | Nenhum encontrado (0 casos). Dado já veio limpo nesse aspecto |
 | Mês fora do intervalo 1–12 | despesas | Nenhum encontrado (0 casos) |
 | 140 IDs de proposição duplicados (de 6.009 registros) | proposicoes | `dropDuplicates` por `id` |
-| Campo `ementa` com 1,07% de nulos | proposicoes | Mantido como está — proporção baixa, não compromete a análise |
+| Campo `ementa` com 1,07% de nulos | proposicoes | Mantido como está, proporção baixa, não compromete a análise |
 
 ---
 
