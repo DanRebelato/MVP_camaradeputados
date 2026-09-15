@@ -73,11 +73,12 @@ print(f"IDs de proposição duplicados: {dup_prop}")
 # MAGIC %md
 # MAGIC ## Resumo dos problemas encontrados e tratamento aplicado
 # MAGIC
-# MAGIC Preencha esta seção após rodar as células acima, com os números reais do seu conjunto de dados. Exemplo de estrutura:
-# MAGIC
 # MAGIC | Problema encontrado | Tabela | Tratamento aplicado (camada Silver) |
 # MAGIC |---|---|---|
-# MAGIC | Nulos em `valorDocumento` | despesas | Registros descartados (não analisáveis) |
-# MAGIC | Duplicatas por variação de grafia em `nomeFornecedor` | despesas | Padronização com `trim` + `upper` antes da deduplicação |
-# MAGIC | Valores negativos em `valorDocumento` | despesas | Filtrados (representam estornos, fora do escopo da análise) |
-# MAGIC | IDs duplicados por reingestão | deputados / proposições | `dropDuplicates` por chave natural |
+# MAGIC | 316 IDs de deputado duplicados (de 1.073 registros) | deputados | `dropDuplicates` por `id` |
+# MAGIC | Campo `email` 100% nulo (1.073/1.073) | deputados | Mantido como está — não é usado nas análises |
+# MAGIC | Campos quase totalmente nulos (`cpf` 100%, `txtTrecho` 100%, `numRessarcimento` 100%, `datPagamentoRestituicao` 100%, `vlrRestituicao` 100%, `txtPassageiro` 99,82%, `txtDescricaoEspecificacao` 55,24%) | despesas | Descartados na seleção da Silver — campos específicos de passagens aéreas/restituições que não entram no modelo |
+# MAGIC | Valores negativos, zerados ou outliers extremos (>3x o percentil 99) | despesas | Nenhum encontrado (0 casos) |
+# MAGIC | Mês fora do intervalo 1–12 | despesas | Nenhum encontrado (0 casos) |
+# MAGIC | 140 IDs de proposição duplicados (de 6.009 registros) | proposicoes | `dropDuplicates` por `id` |
+# MAGIC | Campo `ementa` com 1,07% de nulos | proposicoes | Mantido como está — proporção baixa |
