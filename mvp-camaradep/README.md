@@ -1,3 +1,4 @@
+<img width="1887" height="613" alt="Print 2" src="https://github.com/user-attachments/assets/2cdcbe9f-590c-442b-9f83-e967bb60f300" />
 # MVP de Engenharia de Dados — Comportamento Legislativo dos Deputados Federais
 
 ## Estrutura do repositório
@@ -67,7 +68,9 @@ Catálogo completo (todas as tabelas, campos, tipos e domínios) em
 
 Script: [`02_gold_modelagem.py`](02_gold_modelagem.py)
 
-`[PREENCHER]` — Screenshot do catálogo de dados no Unity Catalog / Data Explorer.
+<img width="1887" height="613" alt="Print 2" src="https://github.com/user-attachments/assets/2eb6c08e-0af1-4449-8d83-dd35c16e68f5" />
+
+Screenshot do catálogo de dados no Unity Catalog / Data Explorer.
 
 ---
 
