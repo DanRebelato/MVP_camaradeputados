@@ -51,7 +51,9 @@ notebook Bronze, que grava cada tabela em Delta com `_ingestion_ts` e `_source`.
 
 Scripts: [`coleta.py`](coleta.py) · [`00_bronze_ingestao.py`](00_bronze_ingestao.py)
 
-`[PREENCHER]` — Screenshot das tabelas Bronze persistidas no Unity Catalog.
+<img width="646" height="297" alt="PRINT 1" src="https://github.com/user-attachments/assets/59d67c54-21b2-48cf-8aa6-cf1c1aa08ba6" />
+
+Screenshot das tabelas Bronze persistidas no Unity Catalog.
 
 ---
 
@@ -65,7 +67,9 @@ Catálogo completo (todas as tabelas, campos, tipos e domínios) em
 
 Script: [`02_gold_modelagem.py`](02_gold_modelagem.py)
 
-`[PREENCHER]` — Screenshot do catálogo de dados no Unity Catalog / Data Explorer.
+<img width="1887" height="613" alt="Print 2" src="https://github.com/user-attachments/assets/4c423636-21aa-43a5-a7e2-53bb84d51e8e" />
+
+Screenshot do catálogo de dados no Unity Catalog / Data Explorer.
 
 ---
 
@@ -82,7 +86,9 @@ Medalhão, para manter cada responsabilidade isolada e fácil de depurar:
 Todas as tabelas são gravadas como tabelas **Delta** no Unity Catalog, uma catálogo por
 camada (`bronze`, `silver`, `gold`).
 
-`[PREENCHER]` — Screenshot confirmando a persistência das tabelas Gold na plataforma.
+<img width="1887" height="688" alt="Print 3" src="https://github.com/user-attachments/assets/5e1eb8a8-a227-4a0f-b1ac-5e00cab3c1f8" />
+
+Screenshot confirmando a persistência das tabelas Gold na plataforma.
 
 ---
 
@@ -92,8 +98,11 @@ Checagens de completude, unicidade, consistência e outliers feitas em
 [`03_qualidade_dados.py`](03_qualidade_dados.py), sobre a camada Bronze
 (para justificar as regras aplicadas na Silver).
 
-`[PREENCHER]` — Tabela com os problemas encontrados e o tratamento aplicado (o notebook já
-traz um template dessa tabela ao final, a ser preenchido com os números reais obtidos).
+<img width="700" alt="Print 4 1" src="https://github.com/user-attachments/assets/a339b4e9-bd5e-4ab1-b36a-ffd5969227eb" />
+<img width="700" alt="Print 4 2" src="https://github.com/user-attachments/assets/dead008d-fdaf-4f0d-a40f-76c6b53a1fef" />
+<img width="700" alt="Print 4 3" src="https://github.com/user-attachments/assets/4783fa15-e2dd-476f-8c0f-310344fbcddc" />
+
+Tabela com os problemas encontrados e o tratamento aplicado.
 
 ---
 
@@ -109,7 +118,9 @@ R$ 29.357 por despesa, muito acima do restante, indicando poucas despesas de val
 não um volume grande de gastos pequenos. Já PSL-PR gasta muito, mas em despesas de ticket
 médio baixo (R$ 1.333).
 
-`[PREENCHER]` — screenshot do resultado dessa consulta.
+<img width="1917" height="918" alt="Print 5 1" src="https://github.com/user-attachments/assets/c0ee8a8f-f583-4435-9265-99c26fe166e9" />
+
+Screenshot do resultado dessa consulta.
 
 ### Pergunta 2 — Categorias de despesa por partido
 As categorias variam bastante conforme o partido. O DEM concentra gastos em "Manutenção de
@@ -118,7 +129,10 @@ recorrentes. Já o PR gasta majoritariamente em "Divulgação da atividade parla
 (R$ 504.749, mais da metade do total do partido), um perfil voltado a comunicação e
 visibilidade, não a estrutura.
 
-`[PREENCHER]` — screenshot do resultado dessa consulta.
+<img width="1918" height="916" alt="Print 5 2" src="https://github.com/user-attachments/assets/2ec45b61-40c7-4ee7-919d-b2167d21464f" />
+
+Screenshot do resultado dessa consulta.
+
 
 ### Pergunta 3 — Proposições x gasto de cota parlamentar
 A correlação encontrada foi de **0,308**, positiva, mas fraca a moderada. Gastar mais da
@@ -127,7 +141,14 @@ Silas Câmara (PRB-AM): 4.489 proposições (disparado o maior número da amostr
 moderado (R$ 645.846), mostrando que dá pra ser hiperprodutivo legislativamente sem gastar
 proporcionalmente mais.
 
-`[PREENCHER]` — screenshot do resultado dessa consulta e do cálculo de correlação.
+<img width="1918" height="915" alt="Print 5 3" src="https://github.com/user-attachments/assets/cf06e4e1-f345-4d0e-870f-971ecaf6ab50" />
+
+Screenshot do resultado dessa consulta
+<br><br>
+
+<img width="1552" height="297" alt="Print Correlação 5 3 1" src="https://github.com/user-attachments/assets/b1045137-7ed3-4ed7-bd12-8ddfe33c2912" />
+
+Screenshot do cálculo de correlação.
 
 ### Pergunta 4 — Produção legislativa por partido/UF
 A produção é extremamente concentrada: PRB-AM lidera com 4.489 proposições, mas isso é
@@ -135,7 +156,8 @@ puxado por um único deputado (Silas Câmara), não por um padrão do partido ou
 Tirando esse outlier, os números caem para a casa das dezenas ou centenas, a produtividade
 legislativa parece mais uma característica individual do que um traço de partido/UF.
 
-`[PREENCHER]` — screenshot do resultado dessa consulta.
+<img width="1918" height="918" alt="Print 5 4" src="https://github.com/user-attachments/assets/f7e0ef98-d09d-4fee-be64-27fb60240ef5" />
+Screenshot do resultado dessa consulta
 
 ### Pergunta 5 — Gasto médio mensal por região
 Sudeste (R$ 169.353/mês) e Nordeste (R$ 149.244/mês) têm gasto médio mensal bem acima de Sul
@@ -143,7 +165,8 @@ Sudeste (R$ 169.353/mês) e Nordeste (R$ 149.244/mês) têm gasto médio mensal 
 as pontas. Isso pode refletir tanto o custo de vida/deslocamento nessas regiões quanto o
 tamanho da amostra por região (a amostra é pequena, então isso pesa no resultado).
 
-`[PREENCHER]` — screenshot do resultado dessa consulta.
+<img width="1918" height="668" alt="Print 5 5" src="https://github.com/user-attachments/assets/a16b0649-fc1a-4bdd-9512-d96aa778ec10" />
+Screenshot do resultado dessa consulta.
 
 ### Discussão geral
 Os dados sugerem que o comportamento legislativo dos deputados na amostra não segue um
