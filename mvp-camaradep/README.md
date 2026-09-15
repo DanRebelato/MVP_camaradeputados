@@ -1,8 +1,5 @@
 # MVP de Engenharia de Dados — Comportamento Legislativo dos Deputados Federais
 
-> Preencha os campos marcados com `[PREENCHER]` depois de rodar os notebooks no Databricks
-> e coletar os screenshots pedidos pelo enunciado (itens 5.7 e 5.8).
-
 ## Estrutura do repositório
 
 ```
@@ -27,8 +24,8 @@ Ordem de execução no Databricks: `00` → `01` → `02` → `03` → `04`.
 Conteúdo completo em [`01_objetivo.md`](01_objetivo.md). Resumo:
 
 **Problema:** entender os fatores que influenciam o comportamento legislativo dos deputados
-federais — gasto de cota parlamentar (CEAP), produtividade legislativa e perfil por
-partido/UF — usando a API de Dados Abertos da Câmara dos Deputados.
+federais, gasto de cota parlamentar (CEAP), produtividade legislativa e perfil por
+partido/UF. Usando a API de Dados Abertos da Câmara dos Deputados.
 
 **Perguntas:**
 1. Quais partidos e UFs concentram o maior gasto total de cota parlamentar (CEAP)?
@@ -54,7 +51,7 @@ notebook Bronze, que grava cada tabela em Delta com `_ingestion_ts` e `_source`.
 
 Scripts: [`coleta.py`](coleta.py) · [`00_bronze_ingestao.py`](00_bronze_ingestao.py)
 
-`[PREENCHER]` — Screenshot das tabelas Bronze persistidas no Unity Catalog.
+`[<img width="646" height="297" alt="PRINT 1" src="https://github.com/user-attachments/assets/7d8db0aa-1b69-4e83-aef7-8755685cd52b" />]` — Screenshot das tabelas Bronze persistidas no Unity Catalog.
 
 ---
 
