@@ -1,6 +1,10 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "5"
+# ///
 # MAGIC %md
-# MAGIC # Gold — Modelagem em Esquema Estrela
+# MAGIC # Gold — Modelagem em Star Schema
 # MAGIC
 # MAGIC Tabelas dimensão (`dim_*`) e tabelas fato (`fact_*`), prontas para responder
 # MAGIC as perguntas de negócio da Etapa 2.

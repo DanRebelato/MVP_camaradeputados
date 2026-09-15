@@ -52,7 +52,7 @@ print(f"silver.camara.deputados: {df_dep_silver.count()} linhas")
 # MAGIC %md
 # MAGIC ## 2. Despesas (CEAP)
 # MAGIC O arquivo consolidado da Câmara usa nomes de coluna próprios (`ideCadastro`, `numAno`,
-# MAGIC `numMes`, `txtDescricao`, `vlrLiquido`, `txtFornecedor`, `datEmissao`) — aqui eles são
+# MAGIC `numMes`, `txtDescricao`, `vlrLiquido`, `txtFornecedor`, `datEmissao`), aqui eles são
 # MAGIC renomeados para os nomes padronizados usados no resto do pipeline.
 # MAGIC - Tipar `valorDocumento` como decimal; valores nulos ou negativos indevidos tratados.
 # MAGIC - Padronizar `nomeFornecedor` (trim + upper) para evitar duplicidade por variação de grafia.
