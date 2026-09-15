@@ -98,17 +98,20 @@ Checagens de completude, unicidade, consistência e outliers feitas em
 [`03_qualidade_dados.py`](03_qualidade_dados.py), sobre a camada Bronze
 (para justificar as regras aplicadas na Silver).
 
-<img width="1490" height="391" alt="Print 4 1" src="https://github.com/user-attachments/assets/a3f64a81-98fb-4790-b67b-0e23eb96f3ae" /> 
+<img width="700" alt="Print 4 1" src="https://github.com/user-attachments/assets/a3f64a81-98fb-4790-b67b-0e23eb96f3ae" /> 
 
-Screenshot da saída do notebook, dados dos Deputados
+Screenshot da saída do notebook, dados dos Deputados.
 
-<img width="1451" height="606" alt="Print 4 2" src="https://github.com/user-attachments/assets/61d2388e-71b2-459e-b061-f9a7338e3de3" />
+
+<img width="700" alt="Print 4 2" src="https://github.com/user-attachments/assets/61d2388e-71b2-459e-b061-f9a7338e3de3" />
 
 Screenshot da saída do notebook, Despesas.
 
-<img width="1513" height="517" alt="Print 4 3" src="https://github.com/user-attachments/assets/76065dfe-4382-40cf-9b73-ded6a6965028" /> 
+
+<img width="700" alt="Print 4 3" src="https://github.com/user-attachments/assets/76065dfe-4382-40cf-9b73-ded6a6965028" /> 
 
 Screenshot da saída do notebook, Proposições.
+
 
 
 | Problema encontrado | Tabela | Tratamento aplicado (camada Silver) |
