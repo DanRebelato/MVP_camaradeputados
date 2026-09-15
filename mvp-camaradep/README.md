@@ -134,7 +134,7 @@ Cada uma das 5 perguntas de negócio é respondida em
 ### Pergunta 1 — Gasto por partido e UF
 Os maiores gastos totais concentram-se em PSL-PR (R$ 787.890), PSD-BA (R$ 764.280) e DEM-BA
 (R$ 719.827). Mas o gasto médio por despesa conta outra história: PRB-AM tem média de
-R$ 29.357 por despesa — muito acima do restante —, indicando poucas despesas de valor alto,
+R$ 29.357 por despesa, muito acima do restante, indicando poucas despesas de valor alto,
 não um volume grande de gastos pequenos. Já PSL-PR gasta muito, mas em despesas de ticket
 médio baixo (R$ 1.333).
 
@@ -144,47 +144,60 @@ Screenshot do resultado dessa consulta.
 
 ### Pergunta 2 — Categorias de despesa por partido
 As categorias variam bastante conforme o partido. O DEM concentra gastos em "Manutenção de
-escritório" (R$ 388.772) e "Locação de veículos" (R$ 331.278) — despesas estruturais
+escritório" (R$ 388.772) e "Locação de veículos" (R$ 331.278), despesas estruturais
 recorrentes. Já o PR gasta majoritariamente em "Divulgação da atividade parlamentar"
-(R$ 504.749, mais da metade do total do partido) — um perfil voltado a comunicação e
+(R$ 504.749, mais da metade do total do partido), um perfil voltado a comunicação e
 visibilidade, não a estrutura.
 
-`[PREENCHER]` — screenshot do resultado dessa consulta.
+<img width="1918" height="916" alt="Print 5 2" src="https://github.com/user-attachments/assets/b8d79bab-6197-47bf-b3ca-65bfea666c55" />
+
+Screenshot do resultado dessa consulta.
 
 ### Pergunta 3 — Proposições x gasto de cota parlamentar
-A correlação encontrada foi de **0,308** — positiva, mas fraca a moderada. Gastar mais da
+A correlação encontrada foi de **0,308**. Positiva, mas fraca a moderada. Gastar mais da
 cota não anda necessariamente junto com produzir mais proposições. O caso mais evidente é
-Silas Câmara (PRB-AM): 4.489 proposições — disparado o maior número da amostra — com gasto
+Silas Câmara (PRB-AM): 4.489 proposições, disparado o maior número da amostra, com gasto
 moderado (R$ 645.846), mostrando que dá pra ser hiperprodutivo legislativamente sem gastar
 proporcionalmente mais.
 
-`[PREENCHER]` — screenshot do resultado dessa consulta e do cálculo de correlação.
+<img width="1918" height="915" alt="Print 5 3" src="https://github.com/user-attachments/assets/4255d1b0-fa44-45c4-9ea2-368e6addc6d1" />
+
+Screenshot do resultado dessa consulta.
+
+<img width="1552" height="297" alt="Print Correlação 5 3 1" src="https://github.com/user-attachments/assets/eb09763d-5a6b-43bb-8854-5ca8f070d556" />
+
+Screenshot do cálculo de correlação.
 
 ### Pergunta 4 — Produção legislativa por partido/UF
 A produção é extremamente concentrada: PRB-AM lidera com 4.489 proposições, mas isso é
 puxado por um único deputado (Silas Câmara), não por um padrão do partido ou do estado.
-Tirando esse outlier, os números caem para a casa das dezenas ou centenas — a produtividade
+Tirando esse outlier, os números caem para a casa das dezenas ou centenas, a produtividade
 legislativa parece mais uma característica individual do que um traço de partido/UF.
 
-`[PREENCHER]` — screenshot do resultado dessa consulta.
+<img width="1918" height="918" alt="Print 5 4" src="https://github.com/user-attachments/assets/893c5f41-e162-4ce3-b915-433979dc2444" />
+
+Screenshot do resultado dessa consulta.
 
 ### Pergunta 5 — Gasto médio mensal por região
 Sudeste (R$ 169.353/mês) e Nordeste (R$ 149.244/mês) têm gasto médio mensal bem acima de Sul
-(R$ 80.248), Centro-Oeste (R$ 59.337) e Norte (R$ 58.713) — uma diferença de quase 3x entre
+(R$ 80.248), Centro-Oeste (R$ 59.337) e Norte (R$ 58.713), uma diferença de quase 3x entre
 as pontas. Isso pode refletir tanto o custo de vida/deslocamento nessas regiões quanto o
 tamanho da amostra por região (a amostra é pequena, então isso pesa no resultado).
 
-`[PREENCHER]` — screenshot do resultado dessa consulta.
+<img width="1918" height="668" alt="Print 5 5" src="https://github.com/user-attachments/assets/b31589a9-e825-48de-97fb-5500808917dc" />
+
+Screenshot do resultado dessa consulta.
 
 ### Discussão geral
 Os dados sugerem que o comportamento legislativo dos deputados na amostra não segue um
-padrão único ligado a partido ou UF — ele varia mais por perfil individual do parlamentar
-(como fica claro no caso de Silas Câmara) do que por filiação partidária ou geografia. A
-correlação fraca entre proposições e gasto (0,308) reforça que gasto de cota parlamentar e
+padrão único ligado a partido ou UF, ele varia mais por perfil individual do parlamentar
+(como fica claro no caso de Silas Câmara) do que por filiação partidária ou geografia.
+A correlação fraca entre proposições e gasto (0,308) reforça que gasto de cota parlamentar e
 produção legislativa são fenômenos relativamente independentes. As diferenças regionais de
 gasto (Pergunta 5) são o padrão mais consistente encontrado, e provavelmente merecem uma
-leitura combinada com custo de vida/deslocamento regional — um ponto para investigar em
-trabalhos futuros. Vale registrar que esses resultados vêm de uma amostra de 40 deputados
+leitura combinada com custo de vida/deslocamento regional, um ponto para investigar em
+trabalhos futuros. 
+Vale registrar que esses resultados vêm de uma amostra de 40 deputados
 (não o total de 513), então servem como indício, não como conclusão definitiva sobre o
 comportamento da Câmara como um todo.
 
@@ -202,10 +215,10 @@ mais dados.
 
 A maior dificuldade não foi a modelagem ou o Spark em si, foi a coleta. O Databricks Free
 Edition não tem acesso à internet externa no compute Serverless, então chamar a API da Câmara
-direto de dentro de um notebook simplesmente não funciona — precisei mover a coleta pra rodar
+direto de dentro de um notebook simplesmente não funciona, foi preciso mover a coleta pra rodar
 localmente e subir os CSVs por upload. Depois, descobri que o próprio endpoint de despesas da
 API REST (`/deputados/{id}/despesas`) está retornando vazio para 2024 em diante, mesmo para
-deputados com gasto real e público — inclusive testei com o presidente da Câmara e o resultado
+deputados com gasto real e público, inclusive testei com o presidente da Câmara e o resultado
 foi zero. A solução foi trocar de fonte: usar o arquivo consolidado por ano que a própria
 Câmara disponibiliza (`Ano-{ano}.csv.zip`), que tem uma estrutura de colunas diferente da API
 e exigiu ajustar o mapeamento de campos nas camadas Silver, Gold e de qualidade de dados.
@@ -215,5 +228,5 @@ dados de votações para enriquecer a análise de comportamento legislativo; cru
 regional (Pergunta 5) com dados de custo de vida por UF, já que a diferença encontrada entre
 regiões pode estar mais ligada a isso do que ao comportamento do parlamentar em si; e investigar
 por que a busca de deputados por `idLegislatura=56` retornou 1.073 registros (mais que o
-esperado — provavelmente inclui suplentes que passaram pelo cargo ao longo da legislatura),
+esperado, provavelmente inclui suplentes que passaram pelo cargo ao longo da legislatura),
 pra decidir se vale filtrar só os titulares atuais.
