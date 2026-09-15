@@ -51,13 +51,14 @@ notebook Bronze, que grava cada tabela em Delta com `_ingestion_ts` e `_source`.
 
 Scripts: [`coleta.py`](coleta.py) · [`00_bronze_ingestao.py`](00_bronze_ingestao.py)
 
-<img width="646" height="297" alt="PRINT 1" src="https://github.com/user-attachments/assets/7d8db0aa-1b69-4e83-aef7-8755685cd52b" /> — Screenshot das tabelas Bronze persistidas no Unity Catalog.
+<img width="646" height="297" alt="PRINT 1" src="https://github.com/user-attachments/assets/7d8db0aa-1b69-4e83-aef7-8755685cd52b" />
+— Screenshot das tabelas Bronze persistidas no Unity Catalog.
 
 ---
 
 ## Modelagem e Catálogo de Dados (Etapa 4.3)
 
-Modelo em **Esquema Estrela** na camada Gold: `dim_deputado`, `dim_partido`, `dim_tempo`
+Modelo em **Star Schema** na camada Gold: `dim_deputado`, `dim_partido`, `dim_tempo`
 como dimensões; `fact_despesas` e `fact_proposicoes` como fatos.
 
 Catálogo completo (todas as tabelas, campos, tipos e domínios) em
