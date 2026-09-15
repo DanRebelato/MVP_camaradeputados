@@ -1,8 +1,5 @@
 # MVP de Engenharia de Dados — Comportamento Legislativo dos Deputados Federais
 
-> Preencha os campos marcados com `[PREENCHER]` depois de rodar os notebooks no Databricks
-> e coletar os screenshots pedidos pelo enunciado (itens 5.7 e 5.8).
-
 ## Estrutura do repositório
 
 ```
