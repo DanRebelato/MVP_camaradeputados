@@ -101,18 +101,18 @@ Checagens de completude, unicidade, consistência e outliers feitas em
 <img width="700" alt="Print 4 1" src="https://github.com/user-attachments/assets/a3f64a81-98fb-4790-b67b-0e23eb96f3ae" /> 
 
 Screenshot da saída do notebook, dados dos Deputados.
-
-
+ 
+ 
 <img width="700" alt="Print 4 2" src="https://github.com/user-attachments/assets/61d2388e-71b2-459e-b061-f9a7338e3de3" />
 
 Screenshot da saída do notebook, Despesas.
-
-
+ 
+ 
 <img width="700" alt="Print 4 3" src="https://github.com/user-attachments/assets/76065dfe-4382-40cf-9b73-ded6a6965028" /> 
 
 Screenshot da saída do notebook, Proposições.
-
-
+ 
+ 
 
 | Problema encontrado | Tabela | Tratamento aplicado (camada Silver) |
 |---|---|---|
@@ -131,8 +131,6 @@ Screenshot da saída do notebook, Proposições.
 Cada uma das 5 perguntas de negócio é respondida em
 [`04_analise.py`](04_analise.py) via consultas SQL sobre a camada Gold.
 
-`[PREENCHER]` — Para cada pergunta: screenshot do resultado + discussão do que o número
-significa no contexto do problema (ex.: "a análise mostra que X, o que sugere Y").
 
 ### Pergunta 1 — Gasto por partido e UF
 Os maiores gastos totais concentram-se em PSL-PR (R$ 787.890), PSD-BA (R$ 764.280) e DEM-BA
@@ -141,7 +139,9 @@ R$ 29.357 por despesa — muito acima do restante —, indicando poucas despesas
 não um volume grande de gastos pequenos. Já PSL-PR gasta muito, mas em despesas de ticket
 médio baixo (R$ 1.333).
 
-`[PREENCHER]` — screenshot do resultado dessa consulta.
+<img width="1917" height="918" alt="Print 5 1" src="https://github.com/user-attachments/assets/66991170-7849-4d86-b11b-ee5497b77388" /> 
+
+Screenshot do resultado dessa consulta.
 
 ### Pergunta 2 — Categorias de despesa por partido
 As categorias variam bastante conforme o partido. O DEM concentra gastos em "Manutenção de
