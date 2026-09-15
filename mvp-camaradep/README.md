@@ -101,17 +101,16 @@ Checagens de completude, unicidade, consistência e outliers feitas em
 <img width="700" alt="Print 4 1" src="https://github.com/user-attachments/assets/a3f64a81-98fb-4790-b67b-0e23eb96f3ae" /> 
 
 Screenshot da saída do notebook, dados dos Deputados.
- 
- 
+<br>
 <img width="700" alt="Print 4 2" src="https://github.com/user-attachments/assets/61d2388e-71b2-459e-b061-f9a7338e3de3" />
 
 Screenshot da saída do notebook, Despesas.
- 
+<br>
  
 <img width="700" alt="Print 4 3" src="https://github.com/user-attachments/assets/76065dfe-4382-40cf-9b73-ded6a6965028" /> 
 
 Screenshot da saída do notebook, Proposições.
- 
+<br>
  
 
 | Problema encontrado | Tabela | Tratamento aplicado (camada Silver) |
